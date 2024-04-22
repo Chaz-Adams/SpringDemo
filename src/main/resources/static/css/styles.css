@@ -1,0 +1,144 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: teal; /* Background color */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* CRUD section styles */
+.crud-section, .result-section {
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Form styles */
+#crudForm {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade of primary color */
+}
+
+/* Result section styles */
+.result-section {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#results {
+    margin-top: 20px;
+}
+
+/* Second page styles */
+.quote-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.quote {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+    color: #333; /* Dark gray text */
+}
+
+/* Button styles */
+.fetch-quote-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.fetch-quote-btn:hover {
+    background-color: #45a049; /* Darker shade of green */
+}
+
+/* Link styles */
+.back-to-first-page {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #007bff; /* Blue */
+    text-decoration: none;
+}
+
+.back-to-first-page:hover {
+    text-decoration: underline;
+}
+
+/* Additional styles */
+#header {
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 3rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    background-color: #ffbd59;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover {
+    background-color: white;
+    color: #ffbd59;
+    cursor: pointer;
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}

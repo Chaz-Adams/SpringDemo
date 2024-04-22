@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanye West Quotes</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+<!-- Navigation bar -->
+<nav>
+    <ul>
+        <li><a href="/first-page">First Page</a></li>
+        <li><a href="/second-page">Second Page</a></li>
+    </ul>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <h1>Kanye West Quotes</h1>
+    <button id="fetchQuoteBtn">Fetch Kanye Quote</button>
+    <div id="kanyeQuote"></div>
+</div>
+
+<!-- JavaScript for fetching Kanye quote -->
+<script>
+    document.getElementById('fetchQuoteBtn').addEventListener('click', function() {
+        const url = 'https://api.kanye.rest/';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('kanyeQuote').textContent = data.quote;
+            })
+            .catch(error => console.error(error));
+    });
+</script>
+
+</body>
+</html>

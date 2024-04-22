@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<!-- Navigation bar -->
+<nav>
+    <ul>
+        <li><a href="/first-page">First Page</a></li>
+        <li><a href="/second-page">Second Page</a></li>
+    </ul>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <!-- Sidebar for CRUD operations -->
+    <div class="sidebar">
+        <h3>CRUD Operations</h3>
+        <select id="crudSelect">
+            <option value="add">Add</option>
+            <option value="delete">Delete</option>
+            <option value="update">Edit</option>
+            <option value="read">View All</option>
+        </select>
+        <div id="inputFields"></div>
+        <form id="crudForm">
+            <!-- Button for form submission -->
+            <button type="button" id="submitBtn">Submit</button>
+        </form>
+    </div>
+    <!-- Result section -->
+    <div class="result-section">
+        <h3>Results</h3>
+        <div id="results"></div>
+    </div>
+</div>
+
+<!-- JavaScript for AJAX -->
+<script>
+    $(document).ready(function () {
+        // Function to handle form submission
+        function submitForm() {
+            var selectedOperation = $('#crudSelect').val();
+
+            // Only proceed with form submission if the operation is not "read"
+            if (selectedOperation !== 'read') {
+                var url = '/api/items/' + selectedOperation;
+                var requestType = 'POST'; // Default request type is POST
+
+                // Get the form data and serialize it into JSON format
+                var formData = $('#crudForm').serializeArray();
+                var jsonData = {};
+                $.each(formData, function () {
+                    jsonData[this.name] = this.value;
+                });
+
+                $.ajax({
+                    type: requestType,
+                    url: url,
+                    contentType: 'application/json', // Set content type to JSON
+                    data: JSON.stringify(jsonData), // Send the serialized form data as JSON
+                    success: function (data) {
+                        $('#results').html('<pre>' + JSON.stringify(data, null, 2) + '</pre>');
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $('#results').html('<p>Error: ' + xhr.responseText + '</p>');
+                    }
+                });
+            }
+            // For "read" operation, trigger another AJAX request to fetch data without form submission
+            else {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/items/all',
+                    contentType: 'application/json',
+                    success: function (data) {
+                        $('#results').html('<pre>' + JSON.stringify(data, null, 2) + '</pre>');
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $('#results').html('<p>Error: ' + xhr.responseText + '</p>');
+                    }
+                });
+            }
+        }
+
+        // Trigger form submission only when the "Submit" button is clicked
+        $('#submitBtn').click(function () {
+            submitForm();
+        });
+
+        // Trigger form submission when the dropdown selection changes
+        $('#crudSelect').change(function () {
+            var selectedOperation = $(this).val();
+
+            // Clear previous input fields
+            $('#inputFields').empty();
+
+            // Append input fields based on selected operation
+            if (selectedOperation === 'add' || selectedOperation === 'update') {
+                $('#inputFields').append('<input type="text" name="firstName" placeholder="First Name"><br>');
+                $('#inputFields').append('<input type="text" name="lastName" placeholder="Last Name"><br>');
+                $('#inputFields').append('<input type="text" name="address" placeholder="Address"><br>');
+                $('#inputFields').append('<input type="text" name="city" placeholder="City"><br>');
+            } else if (selectedOperation === 'delete' || selectedOperation === 'read') {
+                $('#inputFields').append('<input type="text" name="id" placeholder="Item ID"><br>');
+            }
+
+            // If the operation is not "read", submit the form
+            if (selectedOperation !== 'read') {
+                submitForm();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
