@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to LevelUp Together</title>
+<!--    Page-only CSS view-->
+    <link rel="stylesheet" href="../static/css/styles.css">
+<!--    Server CSS view-->
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+<header>
+    <h1>Welcome to LevelUp Together</h1>
+    <p>Empowering educators to create inclusive learning environments for students of all abilities.</p>
+</header>
+<nav>
+    <button id="loginBtn" a href="/login"></a>Login</button>
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="/first-page">First Page</a></li>
+            <li><a href="/second-page">Second Page</a></li>
+            <li><a href="/home">Home Page</a></li>
+            <li><a href="/login">Login Page</a></li>
+            <li><a href="/student-dashboard">Teacher Page</a></li>
+            <li><a href="/teacher-dashboard">Student Page</a></li>
+        </ul>
+    </nav>
+</nav>
+<footer>
+    <p>© 2024 LevelUp Together. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById('loginBtn').addEventListener('click', function() {
+    window.location.href = '/login.html'; // Redirects to the login page
+});
+</script>
+</body>
+</html>

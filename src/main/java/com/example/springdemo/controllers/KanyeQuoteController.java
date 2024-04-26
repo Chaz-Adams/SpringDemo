@@ -19,4 +19,5 @@ public class KanyeQuoteController {
     public String getKanyeQuote() {
         return kanyeQuoteService.getKanyeQuote();
     }
+
 }

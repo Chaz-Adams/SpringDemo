@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | LevelUp Together</title>
+    <link rel="stylesheet" href="../content/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- Navigation bar -->
+<nav>
+    <ul>
+        <li><a href="/first-page">First Page</a></li>
+        <li><a href="/second-page">Second Page</a></li>
+        <li><a href="/home">Home Page</a></li>
+        <li><a href="/login">Login Page</a></li>
+        <li><a href="/student-dashboard">Teacher Page</a></li>
+        <li><a href="/teacher-dashboard">Student Page</a></li>
+    </ul>
+</nav>
+<div id="teacherDashboard">
+    <!-- Profile Creation Form -->
+    <div id="profileCreation">
+        <h2>Create Student Profile</h2>
+        <form id="createProfileForm">
+            <input type="text" id="studentName" placeholder="Student Name">
+            <input type="number" id="gradeLevel" placeholder="Grade Level">
+            <button type="submit">Create Profile</button>
+        </form>
+    </div>
+
+    <!-- Material Search and Assignment -->
+    <div id="materialSearch">
+        <h2>Search and Assign Materials</h2>
+        <input type="text" id="searchTopic" placeholder="Search by Topic">
+        <button onclick="searchMaterials()">Search</button>
+        <div id="searchResults"></div>
+    </div>
+
+    <!-- Student Progress Overview -->
+    <div id="studentOverview">
+        <h2>Student Progress</h2>
+        <div id="progressList"></div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
